@@ -1,4 +1,3 @@
-@Library('jenkins-lib')
 pipeline {
 
     agent any
