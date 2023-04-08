@@ -18,7 +18,7 @@ pipeline {
             }
 
         }
-        stage ('Unit Test Mavin') {
+        stage ('Unit Test Maven') {
 
             steps {
                 script {
@@ -26,6 +26,14 @@ pipeline {
                 }
             }
 
+        }
+        stage ('Integration Test Maven') {
+            
+            steps {
+                script { 
+                    mvnIntegrationTest()
+                }
+            }
         }
 
     }
