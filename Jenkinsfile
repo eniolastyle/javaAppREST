@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                scripts {
+                script {
                     git branch: 'main', url: 'https://github.com/eniolastyle/javaAppREST.git'
                 }
             }
