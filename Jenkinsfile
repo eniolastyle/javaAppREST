@@ -9,14 +9,10 @@ pipeline {
 
             steps {
 
-                script {
-
-                    gitCheckout(
-                        branch: "main",
-                        url: "https://github.com/eniolastyle/javaAppREST.git"
-                    )
-
-                }
+                gitCheckout(
+                    branch: "main",
+                    url: "https://github.com/eniolastyle/javaAppREST.git"
+                )
 
             }
 
