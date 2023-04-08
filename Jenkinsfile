@@ -18,6 +18,15 @@ pipeline {
             }
 
         }
+        stage ('Unit Test Mavin') {
+
+            steps {
+                script {
+                    mvnTest()
+                }
+            }
+
+        }
 
     }
 
