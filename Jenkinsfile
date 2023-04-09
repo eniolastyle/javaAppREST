@@ -94,12 +94,21 @@ pipeline {
                 }
             }
         }
-        stage ('Docket image scan: trivy') {
+        stage ('Docker image scan: trivy') {
             when { expression {params.action == 'create'}}
 
             steps {
                 script {
                     dockerImageScan("${params.ImageName}", "${params.ImageTag}", "${params.DockerHubUser}")
+                }
+            }
+        }
+        stage ('Docker image push: DockerHub') {
+            when {expression {params.action == 'create'}} 
+
+            steps {
+                script {
+                    dockerImagePush("${params.ImageName}", "${params.ImageTag}", "${params.DockerHubUser}")
                 }
             }
         }
