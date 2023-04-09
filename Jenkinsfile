@@ -63,7 +63,7 @@ pipeline {
         }
         stage ('Quality gate status: Sonarqube') {
 
-            when {expression { params.action == 'create' } }
+            when { expression { params.action == 'create' } }
 
             steps {
                 script {
@@ -71,6 +71,16 @@ pipeline {
                     QualityGateStatus(SonarqubeCredentialsId)
                 }
             }
+        }
+        stage ('Maven build : maven') {
+            
+           when { expression { params.action == 'create' } }
+
+           steps {
+                script {
+                    mvnBuild()
+                }
+           } 
         }
 
     }
